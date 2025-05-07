@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+"""
+Command-line script for the comment_remover package.
+"""
+
+from comment_remover.cli import main
+
+if __name__ == "__main__":
+    exit(main())

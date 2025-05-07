@@ -11,43 +11,39 @@ A versatile tool to remove comments from code files of various programming langu
 - Provides command-line interface with various options
 - Can process files in-place or output to a new file
 
-## Project Structure
+## Supported Languages
 
-```
-comment-remover/
-├── comment_remover/         # Main package
-│   ├── __init__.py          # Package initialization
-│   ├── core.py              # Core functionality
-│   ├── cli.py               # Command-line interface
-│   └── __main__.py          # Entry point for python -m comment_remover
-├── tests/                   # Test package
-│   ├── __init__.py          # Test package initialization
-│   └── test_comment_remover.py  # Test cases
-├── setup.py                 # Installation script
-├── setup.cfg                # Package configuration
-├── requirements.txt         # Dependencies
-├── README.md                # This file
-├── LICENSE                  # MIT License
-├── MANIFEST.in              # Package manifest
-├── .gitignore               # Git ignore file
-├── run_tests.py             # Script to run tests
-└── comment-remover          # Command-line script
-```
+The tool supports a wide range of programming languages and file types, including:
+
+- C-style languages (C, C++, Java, JavaScript, etc.)
+- Python
+- HTML/XML
+- CSS/SCSS/LESS
+- SQL
+- Shell scripts
+- Ruby
+- Lua
+- PowerShell
+- YAML
+- Perl
+- R
+- Haskell
+- Batch files
 
 ## Installation
+
+### From PyPI
+
+```bash
+pip install comment-remover
+```
 
 ### From Source
 
 ```bash
-# Clone the repository
 git clone https://github.com/Sharma-IT/comment-remover.git
 cd comment-remover
-
-# Install the package
 pip install .
-
-# Or install in development mode
-pip install -e .
 ```
 
 ## Usage
@@ -94,14 +90,33 @@ with open('file_no_comments.py', 'w') as f:
     f.write(cleaned_content)
 ```
 
-## Running Tests
+## Command-line Options
+
+- `input_file`: Path to the input file
+- `-o, --output`: Path to the output file (if not provided, prints to console)
+- `-i, --in-place`: Modify the input file directly (creates a backup)
+- `-t, --type`: Force a specific file type (e.g., python, c_style, css, etc.)
+- `-l, --list-types`: List all supported file types and exit
+- `-v, --verbose`: Print verbose information about the file type detection
+
+## Examples
+
+### Remove comments from a Python file
 
 ```bash
-# Run tests using the provided script
-python run_tests.py
+comment-remover script.py -o script_clean.py
+```
 
-# Or run tests directly
-python -m unittest discover tests
+### Remove comments from a JavaScript file in-place
+
+```bash
+comment-remover app.js -i
+```
+
+### Process a file with an unknown extension as Python
+
+```bash
+comment-remover data.txt -t python
 ```
 
 ## License
